@@ -1,0 +1,309 @@
+/* ============ GLOBAL ============ */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #f9f6f1;
+  color: #333;
+}
+
+/* ============ NAVBAR ============ */
+nav {
+  background: #ffffff;
+  padding: 15px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  margin-right: 20px;
+}
+
+nav a:hover {
+  color: #f59e0b;
+}
+
+nav button {
+  background: #f59e0b;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ============ PAGE TITLE ============ */
+.page-title {
+  text-align: center;
+  margin: 40px 0 20px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+/* ============ EVENT GRID ============ */
+.events-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 20px;
+}
+
+/* ============ EVENT CARD ============ */
+.event-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-8px);
+}
+
+/* ICON */
+.event-icon {
+  width: 80px;
+  height: 80px;
+  background: #fef3c7;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin: 0 auto 15px;
+}
+
+/* TEXT */
+.event-card h3 {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.event-card p {
+  font-size: 14px;
+  margin: 6px 0;
+  color: #666;
+}
+
+/* SEATS */
+.seats {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+/* BUTTON */
+.event-card button {
+  margin-top: 15px;
+  background: #f59e0b;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.event-card button:hover {
+  background: #d97706;
+}
+
+.event-card button:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+}
+/* ===================== PAGE LOAD ANIMATION ===================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-title {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* ===================== CARD STAGGER ANIMATION ===================== */
+.event-card {
+  opacity: 0;
+  animation: fadeInUp 0.7s ease forwards;
+}
+/* ===== HOVER GLOW EFFECT ===== */
+.event-card {
+  position: relative;
+}
+
+.event-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: radial-gradient(circle at top, #fde68a, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.event-card:hover::before {
+  opacity: 1;
+}
+
+.event-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+/* ===== RIPPLE BUTTON EFFECT ===== */
+.event-card button {
+  position: relative;
+  overflow: hidden;
+}
+
+.event-card button::after {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: rgba(255, 255, 255, 0.4);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.event-card button:active::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+}
+/* ===== AUTH PAGE CARD ===== */
+.auth-card {
+  background: white;
+  border-radius: 20px;
+  padding: 35px;
+  max-width: 420px;
+  margin: 80px auto;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  animation: fadeInUp 0.7s ease forwards;
+}
+
+/* Hover glow for auth card */
+.auth-card:hover {
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.18);
+}
+
+/* Inputs */
+.auth-card input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  transition: border 0.3s ease;
+}
+
+.auth-card input:focus {
+  outline: none;
+  border-color: #f59e0b;
+}
+
+/* Button ripple reused */
+.auth-card button {
+  width: 100%;
+  background: #f59e0b;
+  border: none;
+  padding: 12px;
+  border-radius: 25px;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-card button:hover {
+  background: #d97706;
+}
+/* ================= AUTH PAGES ================= */
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.auth-card {
+  background: white;
+  width: 380px;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  animation: fadeInUp 0.6s ease;
+}
+
+.auth-card h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.auth-card input:focus {
+  outline: none;
+  border-color: #f59e0b;
+}
+
+.auth-card button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px;
+  background: #f59e0b;
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.auth-card button:hover {
+  background: #d97706;
+}
+.price {
+  font-size: 16px;
+  font-weight: 600;
+  color: #16a34a;
+}
+
+
+/* Stagger effect */
+.event-card:nth-child(1) { animation-delay: 0.1s; }
+.event-card:nth-child(2) { animation-delay: 0.2s; }
+.event-card:nth-child(3) { animation-delay: 0.3s; }
+.event-card:nth-child(4) { animation-delay: 0.4s; }
+.event-card:nth-child(5) { animation-delay: 0.5s; }
+.event-card:nth-child(6) { animation-delay: 0.6s; }
+
