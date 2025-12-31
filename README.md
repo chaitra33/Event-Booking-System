@@ -175,7 +175,7 @@ Scrrenshots
 
 Author
 Vuggu Sai Chaitra
-GitHub: https://github.com/chaitra-33
+GitHub: https://github.com/chaitra33
 
 
 
